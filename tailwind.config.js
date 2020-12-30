@@ -13,6 +13,9 @@ module.exports = {
           DEFAULT: "#E7E7EB",
           dark: "#6E707A",
         },
+        yellow: {
+          DEFAULT: "#FFEC65",
+        },
       },
       fontFamily: {
         sans: ["Raleway", "sans-serif"],
