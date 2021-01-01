@@ -6,12 +6,12 @@ const weatherSlice = createSlice({
     data: [],
   },
   reducers: {
-    updateData(state, action) {
+    updateWeatherData(state, action) {
       state.data = action.payload;
     },
   },
 });
 
-export const { updateData } = weatherSlice.actions;
+export const { updateWeatherData } = weatherSlice.actions;
 
 export default weatherSlice.reducer;
