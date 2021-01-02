@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 // Components
 import WeatherCard from "../WeatherCard";
+import MeasurmentSystem from "../MeasurmentSystem";
 
 const WeekWeatherCards = () => {
   const [datedWeather, setDatedWeather] = useState([]);
@@ -25,22 +26,27 @@ const WeekWeatherCards = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
-      {datedWeather.map((today) => {
-        //   Format date
-        let day = new Date(today.applicable_date).toDateString();
-        day = day.split(" ");
-        day.pop();
-        return (
-          <WeatherCard
-            abbrevation={today.weather_state_abbr}
-            key={today.id}
-            day={day.join(" ")}
-            minTemp={Math.floor(today.min_temp) + measurment}
-            maxTemp={Math.floor(today.max_temp) + measurment}
-          />
-        );
-      })}
+    <div className="div">
+      <div className="text-white w-full container mx-auto">
+        <MeasurmentSystem />
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+        {datedWeather.map((today) => {
+          //   Format date
+          let day = new Date(today.applicable_date).toDateString();
+          day = day.split(" ");
+          day.pop();
+          return (
+            <WeatherCard
+              abbrevation={today.weather_state_abbr}
+              key={today.id}
+              day={day.join(" ")}
+              minTemp={Math.floor(today.min_temp) + measurment}
+              maxTemp={Math.floor(today.max_temp) + measurment}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

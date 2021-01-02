@@ -9,7 +9,7 @@ const WeatherCard = ({
   maxTemp = "12°C",
 }) => {
   return (
-    <div className="bg-blue w-full flex flex-col items-center jusitfy-center text-gray pt-6 pb-6 text-normal font-medium">
+    <div className="bg-blue w-full min-w-min flex flex-col items-center jusitfy-center text-gray pt-6 pb-6 text-normal font-medium">
       <p className="pb-4">{day}</p>
 
       <WeatherImage abbrevation={abbrevation} />
