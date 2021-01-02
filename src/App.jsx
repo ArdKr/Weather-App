@@ -1,9 +1,13 @@
 import React from "react";
 
+import WeekWeatherCards from "./components/WeekWeatherCards";
+
 const App = () => {
   return (
-    <div>
+    <div className="w-screen">
       <p>!</p>
+
+      <WeekWeatherCards />
     </div>
   );
 };
