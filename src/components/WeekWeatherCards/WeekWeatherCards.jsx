@@ -8,8 +8,6 @@ import MeasurmentSystem from "../MeasurmentSystem";
 
 const WeekWeatherCards = () => {
   const [datedWeather, setDatedWeather] = useState([]);
-  //   Replace later with redux, because this is needed in other components too
-  const [measurment, setMeasurment] = useState("°C");
 
   const dailyWeather = useSelector(
     (state) => state.weather.data["consolidated_weather"]
@@ -27,9 +25,12 @@ const WeekWeatherCards = () => {
 
   return (
     <div className="div">
-      <div className="text-white w-full container mx-auto">
+      <div className="text-white w-full">
         <MeasurmentSystem />
       </div>
+
+      <div className="clear-both"></div>
+
       <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
         {datedWeather.map((today) => {
           //   Format date
@@ -41,8 +42,8 @@ const WeekWeatherCards = () => {
               abbrevation={today.weather_state_abbr}
               key={today.id}
               day={day.join(" ")}
-              minTemp={Math.floor(today.min_temp) + measurment}
-              maxTemp={Math.floor(today.max_temp) + measurment}
+              minTemp={Math.floor(today.min_temp)}
+              maxTemp={Math.floor(today.max_temp)}
             />
           );
         })}
