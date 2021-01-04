@@ -15,14 +15,15 @@ const WeatherImage = ({ abbrevation, height = "65px", width = "65px" }) => {
     c: "Clear.png",
   };
   return (
-    <React.Fragment>
+    <div className="w-28 h-28">
       <img
         src={`images/${weatherImages[abbrevation]}`}
         alt="Weather icon"
         height={height}
         width={width}
+        className="object-fit"
       />
-    </React.Fragment>
+    </div>
   );
 };
 

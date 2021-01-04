@@ -29,6 +29,10 @@ module.exports = {
         "3xl": "4.8rem",
         "4xl": "6rem",
       },
+      padding: {
+        "small-container": "50px",
+        container: "150px",
+      },
     },
   },
   variants: {
