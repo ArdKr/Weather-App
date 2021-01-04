@@ -11,7 +11,7 @@ import { getWeatherInformation } from "./services/api/client";
 
 import App from "./App.jsx";
 
-import "./index.css";
+import "./index.scss";
 
 // Get weather information about Berlin (default)
 // and store it into redux store
