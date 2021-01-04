@@ -1,6 +1,6 @@
 import React from "react";
 
-export const progressBar = () => {
+export const progressBar = (percentage) => {
   return (
     <div className="w-full max-w-2xl mt-4">
       <div className="flex justify-between">
@@ -11,7 +11,7 @@ export const progressBar = () => {
       <div className="bg-gray w-full h-4 rounded-full mt-2">
         <div
           className="bg-yellow h-4 rounded-full"
-          style={{ width: "70%" }}
+          style={{ width: `${percentage}%` }}
         ></div>
       </div>
 
