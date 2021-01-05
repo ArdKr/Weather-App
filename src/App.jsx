@@ -19,7 +19,7 @@ const App = () => {
   }
 
   return (
-    <div className="w-screen h-full m-0 p-0 flex flex-col lg:flex-row">
+    <div className="w-full h-full m-0 p-0 flex flex-col lg:flex-row">
       <SideBar />
 
       <MainSide />
