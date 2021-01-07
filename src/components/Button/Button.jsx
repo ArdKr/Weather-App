@@ -7,9 +7,10 @@ const Button = ({
   border = false,
   onClick,
   rounded = false,
+  paddingEqual = false,
 }) => {
   const styleClasses = () => {
-    let classes = `bg-${color} py-4 px-8 text-white text-normal cursor-pointer`;
+    let classes = `bg-${color} text-white text-normal cursor-pointer text-medium`;
 
     if (border) {
       classes += " border";
@@ -21,6 +22,12 @@ const Button = ({
 
     if (rounded) {
       classes += " rounded-full";
+    }
+
+    if (paddingEqual) {
+      classes += " h-20 w-20";
+    } else {
+      classes += " py-4 px-8";
     }
 
     return classes;

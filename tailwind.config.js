@@ -28,6 +28,7 @@ module.exports = {
         "2xl": "3.6rem",
         "3xl": "4.8rem",
         "4xl": "6rem",
+        "10xl": "14.5rem"
       },
       padding: {
         "small-container": "50px",

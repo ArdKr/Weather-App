@@ -22,7 +22,9 @@ const WeatherCard = ({
     <div className="bg-blue w-full min-w-min flex flex-col items-center jusitfy-center text-gray pt-6 pb-6 text-normal font-medium">
       <p className="pb-4">{day}</p>
 
-      <WeatherImage abbrevation={abbrevation} />
+      <div className="w-28 h-28">
+        <WeatherImage abbrevation={abbrevation} />
+      </div>
 
       <div className="flex justify-between gap-6 pt-12">
         <p className="max-temp">{`${maxTemp}°${currentSystem}`}</p>

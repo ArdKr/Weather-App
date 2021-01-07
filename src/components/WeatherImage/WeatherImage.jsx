@@ -15,7 +15,7 @@ const WeatherImage = ({ abbrevation, height = "65px", width = "65px" }) => {
     c: "Clear.png",
   };
   return (
-    <div className="w-28 h-28">
+    <div>
       <img
         src={`images/${weatherImages[abbrevation]}`}
         alt="Weather icon"
