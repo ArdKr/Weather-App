@@ -32,6 +32,7 @@ const SideBar = () => {
       <WeatherLocation location={location} />
 
       <SideBarCloudDesign />
+
     </div>
   );
 };
