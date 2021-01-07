@@ -55,6 +55,26 @@ export const searchLocation = async (query) => {
 };
 
 /**
+ * Search a city by cordinations
+ *
+ * @param {Number} long
+ * @param {Number} latt
+ */
+export const searchLocationByCords = async (long, latt) => {
+  const requestPromise = await request(SEARCH_URL, {
+    lattlong: `${long},${latt}`,
+  })
+    .then((response) => {
+      return handleResponse(response);
+    })
+    .catch((e) => {
+      return Promise.reject(e.message);
+    });
+
+  return requestPromise;
+};
+
+/**
  * Get weather information for a city by id
  *
  * @param {int} cityId
