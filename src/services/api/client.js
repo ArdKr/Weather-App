@@ -60,9 +60,9 @@ export const searchLocation = async (query) => {
  * @param {Number} long
  * @param {Number} latt
  */
-export const searchLocationByCords = async (long, latt) => {
+export const searchLocationByCords = async (latt,long) => {
   const requestPromise = await request(SEARCH_URL, {
-    lattlong: `${long},${latt}`,
+    lattlong: `${latt},${long}`,
   })
     .then((response) => {
       return handleResponse(response);
