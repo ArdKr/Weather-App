@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "../Button";
+import SearchBar from "../SearchBar";
 
 import { useDispatch } from "react-redux";
 import { updateWeatherData } from "../../services/redux/slices/weatherSlice";
@@ -12,6 +13,8 @@ import {
 
 const SearchLocation = () => {
   const dispatch = useDispatch();
+
+  const [showSearch, setShowSearch] = useState(false);
 
   const getCordinations = () => {
     if (navigator.geolocation) {
@@ -36,9 +39,21 @@ const SearchLocation = () => {
     });
   };
 
+  const SearchLocation = () => {
+    if (showSearch) {
+      return <SearchBar switchSearchBar={switchSearchBar} />;
+    }
+    return null;
+  };
+
+  const switchSearchBar = () => {
+    setShowSearch(!showSearch);
+  };
+
   return (
     <div className="search p-12 flex justify-between">
-      <Button color="gray-darker" onClick={alert}>
+      <SearchLocation />
+      <Button color="gray-darker" onClick={switchSearchBar}>
         Seach for places
       </Button>
 

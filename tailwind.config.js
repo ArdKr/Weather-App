@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      borderWidth: {
+        light: "0.5px",
+      },
       colors: {
         blue: {
           light: "#3C47E9",
@@ -28,7 +31,7 @@ module.exports = {
         "2xl": "3.6rem",
         "3xl": "4.8rem",
         "4xl": "6rem",
-        "10xl": "14.5rem"
+        "10xl": "14.5rem",
       },
       padding: {
         "small-container": "50px",
@@ -37,6 +40,7 @@ module.exports = {
     },
   },
   variants: {
+    scale: ["responsive", "hover", "focus", "active", "group-hover"],
     extend: {},
   },
   plugins: [],

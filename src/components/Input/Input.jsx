@@ -17,7 +17,7 @@ const Input = ({ placeholder = "", onChange, icon = undefined }) => {
     <div className="relative">
       <input
         type="text"
-        className="border bg-transparent p-6 pl-20 text-gray-darker text-normal w-full"
+        className="transition-all border border-transparent ring-gray-600 ring-2 focus:ring-gray focus:outline-none bg-transparent p-6 pl-20 text-gray-darker text-normal w-full"
         placeholder={placeholder}
         onChange={onChange}
       />
