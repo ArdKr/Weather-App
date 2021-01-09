@@ -3,23 +3,20 @@ import React, { useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
 
-import { searchLocation } from "../../services/api/client";
+import { useDispatch } from "react-redux";
+import { updateWeatherData } from "../../services/redux/slices/weatherSlice";
 
-const CityField = ({ cityName }) => {
-  return (
-    <div className="result-item transition-all text-gray text-normal px-5 py-9 cursor-pointer w-full border-light border-transparent hover:border-gray flex justify-between items-center">
-      {cityName}
-      <div className="icon transform scale-0 group-hover:scale-100 transition-all">
-        <i className="fas fa-chevron-right "></i>
-      </div>
-    </div>
-  );
-};
+import {
+  searchLocation,
+  getWeatherInformation,
+} from "../../services/api/client";
 
 const SearchBar = ({ switchSearchBar }) => {
   const [searchInput, setSearchInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+  const dispatch = useDispatch();
 
   const onSearchButtonClick = () => {
     if (searchInput.length > 1) {
@@ -40,6 +37,27 @@ const SearchBar = ({ switchSearchBar }) => {
     }
 
     setErrorMessage("Search word is too short");
+  };
+
+  const openCityById = (cityId) => {
+    dispatch(updateWeatherData([]));
+    getWeatherInformation(cityId).then((response) => {
+      dispatch(updateWeatherData(response));
+    });
+  };
+
+  const CityField = ({ cityName, cityId }) => {
+    return (
+      <div
+        onClick={() => openCityById(cityId)}
+        className="result-item transition-all text-gray text-normal px-5 py-9 cursor-pointer w-full border-light border-transparent hover:border-gray flex justify-between items-center"
+      >
+        {cityName}
+        <div className="icon transform scale-0 group-hover:scale-100 transition-all">
+          <i className="fas fa-chevron-right "></i>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -69,7 +87,13 @@ const SearchBar = ({ switchSearchBar }) => {
 
       <div className="search-results flex flex-col mt-20 group gap-2 overflow-auto max-h-96">
         {searchResults.map((city) => {
-          return <CityField cityName={city.title} />
+          return (
+            <CityField
+              cityName={city.title}
+              cityId={city.woeid}
+              key={city.woeid}
+            />
+          );
         })}
       </div>
     </div>
