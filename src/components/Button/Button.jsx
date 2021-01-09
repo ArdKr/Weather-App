@@ -10,7 +10,7 @@ const Button = ({
   paddingEqual = false,
 }) => {
   const styleClasses = () => {
-    let classes = `bg-${color} text-white text-normal cursor-pointer text-medium`;
+    let classes = `bg-${color} text-white text-normal cursor-pointer text-medium focus:outline-none`;
 
     if (border) {
       classes += " border";
