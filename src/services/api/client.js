@@ -5,8 +5,8 @@
  */
 
 const BASE_URL =
-  "https://thingproxy.freeboard.io/fetch/https://www.metaweather.com/api/location/";
-// "https://cors-anywhere.herokuapp.com/www.metaweather.com/api/location/";
+  // "https://thingproxy.freeboard.io/fetch/https://www.metaweather.com/api/location/";
+  "https://cors-anywhere.herokuapp.com/www.metaweather.com/api/location/";
 const SEARCH_URL = BASE_URL + "search/";
 
 // I will be using axios to make the requests
@@ -60,7 +60,7 @@ export const searchLocation = async (query) => {
  * @param {Number} long
  * @param {Number} latt
  */
-export const searchLocationByCords = async (latt,long) => {
+export const searchLocationByCords = async (latt, long) => {
   const requestPromise = await request(SEARCH_URL, {
     lattlong: `${latt},${long}`,
   })
